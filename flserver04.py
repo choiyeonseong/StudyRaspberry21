@@ -4,11 +4,12 @@ from flask import Flask, render_template, request
 # Flask 객체 인스턴스 생성
 app=Flask(__name__)
 
-@app.route('/')
+@app.route('/') # 접속하는 최초 url
 def index():
+    # 백엔드에서 데이터를 프론트엔드로 전달
     return render_template('login.html')
 
-@app.route('/post', methods=['POST']) # 접속하는 최초 url
+@app.route('/post', methods=['POST']) # submit 값을 받고 url 바뀜
 def post():
     userid = request.form.get('userid')
     password = request.form.get('password')
